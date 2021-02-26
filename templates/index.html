@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Linkvertise Bypasser</title>
+        <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    </head>
+
+    <body>
+        <h1>
+            Linkvertise Bypasser
+        </h1>
+
+
+
+        
+        <form action="/" method = "POST">
+            <p>Bypasser not working? Try refreshing the page and trying again.</p>
+            <p>Input your link into the text box and then press the "submit" button </p>
+            <input type = "text" name = "input_link" class = "input_box"/>
+            <p class = 'input'>
+                {{input_url}}
+            </p>
+            
+
+
+            <div class="buttons">
+                <button class = "btn" type = "submit" name = "button" value = "Bypass">Submit</button>
+                <button class = "btn" type = "submit" name = "button" value = "Clear">Clear</button>
+            </div>
+            
+            
+            {% if is_url == 1 %}
+                <div class = "link">
+                    <a  href="{{output_msg}}">{{output_msg}}</a>
+                </div>
+                
+            {% endif %}
+            {% if is_url == 0 %}
+                <p>{{output_msg}}</p>
+            {% endif %}
+            
+        </form>
+
+        
+    </body>
+</html>
